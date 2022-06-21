@@ -6,6 +6,8 @@ RUN useradd -ms /bin/bash lichess \
     && apt-get update \
     && apt update \
     && apt-get install -y sudo gnupg ca-certificates\
+    # Install cc linker
+    && apt-get install -y build-essential\
     # Disable sudo login for the new lichess user.
     && echo "lichess ALL = NOPASSWD : ALL" >> /etc/sudoers
 
@@ -59,9 +61,6 @@ RUN sudo apt-get autoremove -y \
 # Install Rust toolchain to use `cargo`
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
-# Install cc linker
-RUN apt-get update
-RUN apt install build-essential
 
 ADD run.sh /home/lichess/run.sh
 
