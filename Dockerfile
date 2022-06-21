@@ -56,6 +56,10 @@ RUN sudo apt-get autoremove -y \
   && sudo apt-get clean \
   && sudo rm -rf /home/lichess/build
 
+# Install Rust toolchain to use `cargo`
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
+
 ADD run.sh /home/lichess/run.sh
 
 # Use UTF-8 encoding.
