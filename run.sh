@@ -12,7 +12,7 @@ redis-server --daemonize yes
 # Run MongoDB in the background.
 sudo mongod --fork --logpath /var/log/mongod.log
 
-cd /home/lichess/projects/lila
+cd /home/lichess/lichess-dev
 
 # Update the client side modules.
 # ./ui/build

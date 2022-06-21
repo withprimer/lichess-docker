@@ -59,6 +59,9 @@ RUN sudo apt-get autoremove -y \
 # Install Rust toolchain to use `cargo`
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 RUN echo 'source $HOME/.cargo/env' >> $HOME/.bashrc
+# Install cc linker
+RUN apt-get update
+RUN apt install build-essential
 
 ADD run.sh /home/lichess/run.sh
 
