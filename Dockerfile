@@ -6,6 +6,8 @@ RUN useradd -ms /bin/bash lichess \
     && apt-get update \
     && apt update \
     && apt-get install -y sudo gnupg ca-certificates\
+    # Install cc linker
+    && apt-get install -y build-essential\
     # Disable sudo login for the new lichess user.
     && echo "lichess ALL = NOPASSWD : ALL" >> /etc/sudoers
 
